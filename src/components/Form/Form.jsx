@@ -9,7 +9,7 @@ export default function Form() {
   const [dataList, setDataList] = useState([])
   const handleSignup = (e) => {
     e.preventDefault();
-    setSubmitted({[submitted]: true});
+    setSubmitted({ [submitted]: true });
 
     const newData = { name, number, email };
     setDataList([...dataList, newData]);
@@ -19,47 +19,55 @@ export default function Form() {
   };
 
   return (
-    <c.Container>
-      <c.Form onSubmit={handleSignup}>
-        <c.Title>Formulario de Contato</c.Title>
+    <>
+      <c.Container>
+        <c.Form onSubmit={handleSignup}>
+          <c.Title>Formulario de Contato</c.Title>
 
-        <c.Input
-          type="text"
-          placeholder="Nome Completo"
-          required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+          <c.Input
+            type="text"
+            placeholder="Nome Completo"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
 
-        <c.Input
-          type="tel"
-          placeholder="Numero Telefone"
-          required
-          value={number}
-          onChange={(e) => setNumber(e.target.value)}
-        />
+          <c.Input
+            type="tel"
+            placeholder="Numero Telefone"
+            required
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+          />
 
-        <c.Input
-          type="email"
-          placeholder="Email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+          <c.Input
+            type="email"
+            placeholder="Email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-        <c.Button>Enviar</c.Button>
-      </c.Form>
-    
-      <c.Wraper>
+          <c.Button>Enviar</c.Button>
+        </c.Form>
 
-      {submitted && (
-        <c.Container>
-          {dataList.map((data, index) => (
-           <Card name ={ data.name} tel = { data.number} email ={ data.email} key ={index}/>
-          ))}
-        </c.Container>
-      )}
-      </c.Wraper>
-    </c.Container>
+      </c.Container>
+      <c.Container>
+        <c.Wraper>
+
+
+
+
+          {submitted && (
+            <c.ContainerCard>
+              {dataList.map((data, index) => (
+                <Card name={data.name} tel={data.number} email={data.email} key={index} />
+              ))}
+            </c.ContainerCard>
+          )}
+
+        </c.Wraper>
+      </c.Container>
+    </>
   );
 }

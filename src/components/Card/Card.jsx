@@ -7,6 +7,7 @@ export default function Card({ name, tel, email }) {
       <c.Text>Nome: {name}</c.Text>
       <c.Text>Tel: {tel}</c.Text>
       <c.Text>Email: {email}</c.Text>
+      <button>Editar</button>
     </c.Container>
   );
 }
