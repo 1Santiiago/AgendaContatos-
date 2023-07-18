@@ -3,8 +3,11 @@ import styled from "styled-components";
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  /* width: 100%; */
+  flex:1;
   max-width:30%;
+  justify-content:space-around;
+  
 
 `;
 
@@ -20,7 +23,18 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 2rem;
+  width:100%;
+  /* background-color:blue; */
 `;
+
+
+export const ContainerCard = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* background-color:red; : */
+width:100%; 
+  `
+
 
 export const Input = styled.input`
   width: 100%;
@@ -47,8 +61,6 @@ cursor: pointer;
 `;
 
 export const Wraper = styled.div`
-display: flex;
-justify-content: center;
-
-
+width:100%;
+max-width:85%; 
 `
