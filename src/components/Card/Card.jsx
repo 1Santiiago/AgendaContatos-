@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
+import { FaTrash } from 'react-icons/fa';
+
 import * as c from './styleCard'
 function Card(props) {
   const [editMode, setEditMode] = useState(false);
   const [name, setName] = useState(props.name);
   const [tel, setTel] = useState(props.tel);
   const [email, setEmail] = useState(props.email);
+  const [deleteMode, setDeleteMode] = useState(false);
+
+
+
 
   const handleSave = () => {
-    
+
     setEditMode(false);
   };
 
@@ -24,6 +30,9 @@ function Card(props) {
       </c.Text>
       <button onClick={() => setEditMode(!editMode)}>{editMode ? "Cancelar" : "Editar"}</button>
       {editMode && <button onClick={handleSave}>Salvar</button>}
+      <button onClick={() => setDeleteMode(!deleteMode)}>
+        {deleteMode ? <FaTrash /> : <FaTrash />}
+      </button>
     </c.Container>
   );
 }
